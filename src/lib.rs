@@ -73,7 +73,6 @@ impl Fixed {
 }
 
 fn check_arrive(filepath: &str) -> Result<()> {
-    // ファイルが存在するかをチェック
     let mut p = PathObj::new();
     p.from_str(filepath);
     if p.is_exists() == false {
