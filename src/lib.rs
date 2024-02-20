@@ -80,23 +80,21 @@ fn check_arrive(filepath: &str) -> Result<()> {
     }
     Ok(())
 }
+
 fn is_file_sjis(filepath: &str) -> bool {
     let reader = BinaryReader::open(filepath).unwrap();
+    let mut flg: bool = false;
     for line in reader {
         match line {
             Ok(v) => {
                 if is_sjis(&v) {
-                    return true;
-                } else {
-                    return false;
+                    flg = true;
                 }
             },
-            // todo
-            Err(_) => return false,
+            Err(_) => {},
         };
     }
-    // todo
-    return false;
+    return flg;
 }
 
 
